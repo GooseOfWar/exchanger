@@ -3,6 +3,6 @@
 from django.http import HttpResponse
 
 # Create your views here.
-def first_foo(request):
+def first_foo(request):  # pylint: disable=unused-argument
     """First foo"""
     return HttpResponse("Gooses is our gods")

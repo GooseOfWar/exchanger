@@ -1,4 +1,6 @@
-"""Views"""
+"""
+Views header
+"""
 # from django.shortcuts import render
 from django.http import HttpResponse  #  pylint: disable=import-error
 from exchanger.models import ContactUs

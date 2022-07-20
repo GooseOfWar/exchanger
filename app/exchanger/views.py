@@ -7,6 +7,9 @@ from exchanger.models import ContactUs
 
 
 def contact_us(request):  # pylint: disable=unused-argument
+    """
+    Function show data in ContactUs model
+    """
     contact_us_list: list = []
     for contact_case in ContactUs.objects.all():
         html_str: str = f'\

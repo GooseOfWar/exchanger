@@ -1,13 +1,15 @@
 """
 Views header
 """
-from django.http import HttpResponse  #  pylint: disable=import-error
 from django.shortcuts import render
 
 from exchanger.models import ContactUs, Rate
 
 
 def index(request):
+    """
+    First page
+    """
     return render(request, 'exchanger/index.html')
 
 
@@ -22,6 +24,9 @@ def contact_us(request):  # pylint: disable=unused-argument
 
 
 def rate_list(request):
+    """
+    Page with rate list
+    """
     context = {
         'rate_list': Rate.objects.all()
     }

@@ -1,0 +1,42 @@
+{% extends 'exchanger/base.html' %}
+
+{% block title %}
+    MAILS
+{% endblock title %}
+
+{% block main_content %}
+
+    <h2> USER MAILS </h2>
+
+    <table border="solid" style="border: black">
+        {% for contact_case in contact_us %}
+            <tr style="height: 20px">
+                <td style="border: white"></td>
+            </tr>
+            <tr>
+                <td width="120px" bgcolor="#ffe4c4">MESSAGE ID:</td>
+                <td>{{ contact_case.id }}</td>
+            </tr>
+            <tr>
+                <td bgcolor="#6495ed">FROM:</td>
+                <td>{{ contact_case.email_from }}</td>
+            </tr>
+            <tr>
+                <td bgcolor="#6495ed">TO:</td>
+                <td>{{ contact_case.email_to }}</td>
+            </tr>
+            <tr>
+                <td bgcolor="#00bfff">SUBJECT:</td>
+                <td>{{ contact_case.subject }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>{{ contact_case.message }}</td>
+            </tr>
+
+
+
+        {% endfor %}
+    </table>
+
+{% endblock main_content %}

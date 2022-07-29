@@ -1,0 +1,28 @@
+.navbar-table {
+    list-style-type: none;
+    padding: 0;
+    margin: -9px -9px 10px;
+    overflow: hidden;
+    background-color: #2b7a78;
+
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+
+
+
+}
+
+.navbar-table li {
+    float: left;
+}
+.navbar-table li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar-table li  a:hover {
+  background-color: #3aafa9;
+}

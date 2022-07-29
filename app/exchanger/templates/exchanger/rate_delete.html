@@ -1,0 +1,20 @@
+{% extends 'exchanger/base.html' %}
+
+{% block title %} RATE UPDATE {% endblock title %}
+
+{% block main_content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <table style="margin: auto">
+            <tr>
+                <td>
+                    <a href="/rate/"><button type="button" class="button-68"> FORGET ABOUT IT </button></a>
+                </td>
+                <td>
+                    <button type="submit" class="button-68"> DELETE ID {{ instance.id }}</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'exchanger/base.html' %}
+
+{% block title %} RATE UPDATE {% endblock title %}
+
+{% block main_content %}
+    <DIV>
+        <table class="styled-table">
+            <tr>
+                <th colspan="7">
+                    DETAILS
+                </th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>BASE CURRENCY</th>
+                <th>CURRENCY</th>
+                <th>SALE</th>
+                <th>BUY</th>
+                <th>SOURCE</th>
+                <th>CREATED</th>
+            </tr>
+
+            <tr>
+                <td>{{ instance.id }}</td>
+                <td>{{ instance.base_currency_type }}</td>
+                <td>{{ instance.currency_type }}</td>
+                <td>{{ instance.sale }}</td>
+                <td>{{ instance.buy }}</td>
+                <td>{{ instance.source }}</td>
+                <td>{{ instance.created }}</td>
+            </tr>
+            <tr>
+                <td colspan="7">
+                    <a href="/rate/"> <button class="button-68"> BACK </button></a>
+                </td>
+            </tr>
+        </table>
+    </DIV>
+
+{% endblock %}

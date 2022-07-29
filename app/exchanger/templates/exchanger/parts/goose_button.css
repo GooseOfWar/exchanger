@@ -1,0 +1,15 @@
+.goose{
+    background: url("https://upload.wikimedia.org/wikipedia/commons/3/39/Domestic_Goose.jpg") no-repeat;
+    cursor: pointer;
+    border: none;
+    background-size: 200px;
+    background-position: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 300px;
+    height: 300px;
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+}

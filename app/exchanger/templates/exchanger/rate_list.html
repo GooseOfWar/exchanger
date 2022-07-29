@@ -1,0 +1,30 @@
+{% extends 'exchanger/base.html' %}
+
+{% block title %}
+    RATE LIST
+{% endblock title %}
+
+{% block main_content %}
+    <table>
+        <tr bgcolor="#6495ed">
+            <th>ID</th>
+            <th>BASE CURRENCY</th>
+            <th>CURRENCY</th>
+            <th>SALE</th>
+            <th>BUY</th>
+        </tr>
+
+
+        {% for rate in rate_list %}
+        <tr bgcolor="#ffe4c4">
+            <td bgcolor="#00bfff">{{ rate.id }}</td>
+            <td>{{ rate.base_currency_type}}</td>
+            <td>{{ rate.currency_type}}</td>
+            <td>{{ rate.sale}}</td>
+            <td>{{ rate.buy }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock main_content %}

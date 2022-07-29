@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+    {% include 'exchanger/parts/buttons.css' %}
+    {% include 'exchanger/parts/table.css' %}
+    {% include 'exchanger/parts/navbar_table.css' %}
+    {% include 'exchanger/parts/background_image.css' %}
+    {% include 'exchanger/parts/goose_button.css' %}
+</style>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock title %}</title>
 </head>
-<body>
+<body class="my_image">
 
 {% include 'exchanger/parts/navbar.html' %}
 

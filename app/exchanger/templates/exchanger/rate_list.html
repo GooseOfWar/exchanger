@@ -5,26 +5,35 @@
 {% endblock title %}
 
 {% block main_content %}
-    <table>
-        <tr bgcolor="#6495ed">
+
+    <table class="styled-table">
+        <tr>
             <th>ID</th>
-            <th>BASE CURRENCY</th>
-            <th>CURRENCY</th>
             <th>SALE</th>
             <th>BUY</th>
+            <th colspan="2">
+                <a href="/rate/create/"> <button class="button-68" id="no_shadow"> CREATE NEW RATE</button></a>
+            </th>
         </tr>
 
 
         {% for rate in rate_list %}
-        <tr bgcolor="#ffe4c4">
-            <td bgcolor="#00bfff">{{ rate.id }}</td>
-            <td>{{ rate.base_currency_type}}</td>
-            <td>{{ rate.currency_type}}</td>
-            <td>{{ rate.sale}}</td>
-            <td>{{ rate.buy }}</td>
-        </tr>
+            {# onclick="window.open('/rate/details/{{ rate.id }}/')" #}
+
+            <tr>
+                <td> <a href="/rate/details/{{ rate.id }}/">{{ rate.id }}</a></td>
+                <td>  <a href="/rate/details/{{ rate.id }}/"> {{ rate.sale}} {{ rate.base_currency_type}} </a> </td>
+                <td>  <a href="/rate/details/{{ rate.id }}/"> {{ rate.buy }} {{ rate.currency_type}} </a> </td>
+                <td bgcolor="white">
+                    <a href="/rate/update/{{ rate.id }}/"><button class="button-68" id="white"> EDIT </button></a>
+                </td>
+                <td bgcolor="white">
+                    <a href="/rate/delete/{{ rate.id }}/"> <button class="button-68" id="white"> DELETE </button></a>
+                </td>
+            </tr>
         {% endfor %}
 
     </table>
 
 {% endblock main_content %}
+

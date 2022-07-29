@@ -1,0 +1,49 @@
+{% extends 'exchanger/base.html' %}
+
+{% block title %}
+    SOURCE LIST
+{% endblock title %}
+
+{% block main_content %}
+
+    <table class="styled-table">
+        <tr>
+            <th>ID</th>
+            <th>URL</th>
+            <th>NAME</th>
+            <th colspan="2">
+                <a href="/source/create/"> <button class="button-68" id="no_shadow"> ADD NEW SOURCE</button></a>
+            </th>
+        </tr>
+
+
+        {% for source in source_list %}
+
+            <tr>
+                 <td>
+                    {{ source.id }}
+                </td>
+                <td>
+                    {{ source.source_url }}
+                </td>
+                <td>
+                    {{ source.name}}
+                </td>
+                {# BUTTONS #}
+                <td bgcolor="white">
+                    <a href="/source/update/{{ source.id }}/">
+                        <button class="button-68" id="white"> EDIT </button>
+                    </a>
+                </td>
+                <td bgcolor="white">
+                    <a href="/source/delete/{{ source.id }}/">
+                        <button class="button-68" id="white"> DELETE </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock main_content %}
+

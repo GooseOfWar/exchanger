@@ -6,13 +6,15 @@
 
 {% block main_content %}
     <div> Currency Exchange Project</div>
-    
-     <div>
+    <div>
+    RATE COUNT: {{ rate_count }}
+    </div>
+    <div>
         <a href = 'contact_us/'>ADMIN ONLY</a>
     </div>
 
     <div>
-        <a href = 'rate/'>VIEW RATE LIST</a>
+        <a href ={% url 'rate_list' %}>VIEW RATE LIST</a>
     </div>
     <div>
         <table class="styled-table">

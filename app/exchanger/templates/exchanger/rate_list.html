@@ -12,23 +12,24 @@
             <th>SALE</th>
             <th>BUY</th>
             <th colspan="2">
-                <a href="/rate/create/"> <button class="button-68" id="no_shadow"> CREATE NEW RATE</button></a>
+                <a href={% url 'rate_create' %}> <button class="button-68" id="no_shadow"> CREATE NEW RATE</button></a>
             </th>
         </tr>
 
 
-        {% for rate in rate_list %}
-            {# onclick="window.open('/rate/details/{{ rate.id }}/')" #}
+        {% for rate in object_list %}
+
 
             <tr>
-                <td> <a href="/rate/details/{{ rate.id }}/">{{ rate.id }}</a></td>
-                <td>  <a href="/rate/details/{{ rate.id }}/"> {{ rate.sale}} {{ rate.base_currency_type}} </a> </td>
-                <td>  <a href="/rate/details/{{ rate.id }}/"> {{ rate.buy }} {{ rate.currency_type}} </a> </td>
+                <td> <a href={% url 'rate_details' rate.pk %}>{{ rate.pk }}</a></td>
+                <td>  <a href={% url 'rate_details' rate.pk %}> {{ rate.sale}} {{ rate.base_currency_type}} </a> </td>
+                <td>  <a href={% url 'rate_details' rate.pk %}> {{ rate.buy }} {{ rate.currency_type}} </a> </td>
+                {# BUTTONS #}
                 <td bgcolor="white">
-                    <a href="/rate/update/{{ rate.id }}/"><button class="button-68" id="white"> EDIT </button></a>
+                    <a href={% url 'rate_update' rate.pk%}><button class="button-68" id="white"> EDIT </button></a>
                 </td>
                 <td bgcolor="white">
-                    <a href="/rate/delete/{{ rate.id }}/"> <button class="button-68" id="white"> DELETE </button></a>
+                    <a href={% url 'rate_delete' rate.pk %}> <button class="button-68" id="white"> DELETE </button></a>
                 </td>
             </tr>
         {% endfor %}

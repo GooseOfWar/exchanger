@@ -12,12 +12,12 @@
             <th>URL</th>
             <th>NAME</th>
             <th colspan="2">
-                <a href="/source/create/"> <button class="button-68" id="no_shadow"> ADD NEW SOURCE</button></a>
+                <a href={% url 'source_create' %}> <button class="button-68" id="no_shadow"> ADD NEW SOURCE</button></a>
             </th>
         </tr>
 
 
-        {% for source in source_list %}
+        {% for source in object_list %}
 
             <tr>
                  <td>
@@ -31,12 +31,12 @@
                 </td>
                 {# BUTTONS #}
                 <td bgcolor="white">
-                    <a href="/source/update/{{ source.id }}/">
+                    <a href={% url 'source_update' source.pk %}>
                         <button class="button-68" id="white"> EDIT </button>
                     </a>
                 </td>
                 <td bgcolor="white">
-                    <a href="/source/delete/{{ source.id }}/">
+                    <a href={% url 'source_delete' source.pk %}>
                         <button class="button-68" id="white"> DELETE </button>
                     </a>
                 </td>

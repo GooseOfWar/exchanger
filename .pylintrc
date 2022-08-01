@@ -104,6 +104,7 @@ disable=
     C0116, # missing-function-docstring
     E1101, # no-member
     R0901, # too-many-ancestors
+    E0401, # import-error
 
 
 

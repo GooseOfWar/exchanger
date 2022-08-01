@@ -1,3 +1,6 @@
 Django==4.0.6
 django-extensions
 ipython
+
+#pylint
+pylint-django==2.5.3

@@ -12,7 +12,6 @@ class RateForm(forms.ModelForm):
             'buy',
             'source'
         )
-    pass
 
 
 class SourceForm(forms.ModelForm):
@@ -22,4 +21,3 @@ class SourceForm(forms.ModelForm):
             'source_url',
             'name'
         )
-    pass

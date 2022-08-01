@@ -1,17 +1,14 @@
 """
 Views header
 """
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
-from django.urls import reverse_lazy, reverse
-
+from django.urls import reverse_lazy
 from django.views import generic
 
-from exchanger.models import ContactUs, Rate, Source
 from exchanger.forms import RateForm, SourceForm
+from exchanger.models import ContactUs, Rate, Source
 
 
-class IndexView (generic.TemplateView):
+class IndexView(generic.TemplateView):
     template_name = 'exchanger/index.html'
 
     def get_context_data(self, **kwargs):
@@ -54,13 +51,13 @@ class RateDetails(generic.DeleteView):
     queryset = Rate.objects.all()
     template_name = 'exchanger/rate_details.html'
 
+
 class SourceListView(generic.ListView):
     """
     Page with source list
     """
     queryset = Source.objects.all()
     template_name = 'exchanger/source_list.html'
-
 
 
 class SourceCreateView(generic.CreateView):
@@ -85,5 +82,3 @@ class SourceDeleteView(generic.DeleteView):
 
 class GooseView(generic.TemplateView):
     template_name = 'exchanger/goose.html'
-
-

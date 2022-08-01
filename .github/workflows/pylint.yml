@@ -20,5 +20,8 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint app/exchanger/views.py --disable=import-error
-        pylint app/settings/urls.py --disable=import-error
+        pylint app/exchanger/views.py
+        pylint app/settings/urls.py
+        pylint app/exchanger/urls.py
+        pylint app/exchanger/forms.py
+        pylint app/exchanger/models.py

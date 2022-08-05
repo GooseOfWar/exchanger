@@ -5,7 +5,7 @@ More info: search django admin
 from django.contrib import admin
 
 from import_export import resources
-from import_export.admin import ImportExportModelAdmin
+from import_export.admin import ExportMixin
 
 from exchanger.models import Rate, ContactUs, Source
 
@@ -16,7 +16,7 @@ class RateResource(resources.ModelResource):
         model = Rate
 
 
-class RateAdmin(ImportExportModelAdmin):
+class RateAdmin(ExportMixin, admin.ModelAdmin):
     list_display: tuple = (
         'base_currency_type',
         'currency_type',
@@ -25,14 +25,22 @@ class RateAdmin(ImportExportModelAdmin):
         'source',
         'created',
     )
-    list_filter = (
+    list_filter: tuple = (
         'base_currency_type',
         'currency_type',
         'source',
     )
-    list_per_page = 48
+    list_per_page: int = 48
 
     resource_class = RateResource
+
+    def get_export_formats(self):
+        fmt: list = super().get_export_formats()
+        allowed_fmt: list[str] = ['CSV', 'XLSX']
+        formats: list = [i for i in fmt if i.__name__ in allowed_fmt]
+        return formats
+
+
 
 
 class SourceAdmin(admin.ModelAdmin):
@@ -41,7 +49,7 @@ class SourceAdmin(admin.ModelAdmin):
         'name',
         'created',
     )
-    list_filter = (
+    list_filter: tuple = (
         'source_url',
         'name',
     )
@@ -55,7 +63,7 @@ class ContactUsAdmin(admin.ModelAdmin):
         'email_to',
         'received'
     )
-    list_per_page = 48
+    list_per_page: int = 48
 
     def has_change_permission(self, request, obj=None):
         return False

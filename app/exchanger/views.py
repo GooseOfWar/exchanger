@@ -1,5 +1,6 @@
 """
 Views header
+Class View model get from ccbv.co.uk
 """
 from django.urls import reverse_lazy
 from django.views import generic

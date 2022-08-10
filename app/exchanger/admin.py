@@ -7,7 +7,7 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ExportMixin
 
-from exchanger.models import Rate, ContactUs, Source
+from exchanger.models import Rate, ContactUs, Source, ResponseLog
 
 
 class RateResource(resources.ModelResource):
@@ -75,6 +75,25 @@ class ContactUsAdmin(admin.ModelAdmin):
         return False
 
 
+# Log
+
+class LogAdmin(admin.ModelAdmin):
+    list_display: tuple = (
+        'response_time',
+        'request_method',
+        'query_params',
+        'ip',
+        'path',
+        'created',
+    )
+    list_filter: tuple = (
+        'request_method',
+        'path',
+    )
+    list_per_page = 48
+
+
 admin.site.register(Rate, RateAdmin)
 admin.site.register(Source, SourceAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
+admin.site.register(ResponseLog, LogAdmin)

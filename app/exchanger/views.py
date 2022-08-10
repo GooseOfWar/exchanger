@@ -5,8 +5,8 @@ Class View model get from ccbv.co.uk
 from django.urls import reverse_lazy
 from django.views import generic
 
-from exchanger.forms import RateForm, SourceForm
-from exchanger.models import ContactUs, Rate, Source
+from exchanger.forms import RateForm, SourceForm, ContactUsForm
+from exchanger.models import ContactUs, Rate, Source, ResponseLog
 
 
 class IndexView(generic.TemplateView):
@@ -17,12 +17,21 @@ class IndexView(generic.TemplateView):
         context['rate_count'] = Rate.objects.count()
         return context
 
-
+# Contact Us
+# zochem?
 class ContactUsView(generic.ListView):
     queryset = ContactUs.objects.all()
     template_name = 'exchanger/contact_us.html'
 
 
+class ContactUsCreateView(generic.CreateView):
+    queryset = ContactUs.objects.all()
+    template_name = 'exchanger/contact_us_create.html'
+    form_class = ContactUsForm
+    success_url = '/'
+
+
+# RATE
 class RateListView(generic.ListView):
     queryset = Rate.objects.all()
     template_name = 'exchanger/rate_list.html'
@@ -48,11 +57,12 @@ class RateDeleteView(generic.DeleteView):
     success_url = reverse_lazy('rate_list')
 
 
-class RateDetails(generic.DeleteView):
+class RateDetailsView(generic.DeleteView):
     queryset = Rate.objects.all()
     template_name = 'exchanger/rate_details.html'
 
 
+# SOURCE
 class SourceListView(generic.ListView):
     """
     Page with source list
@@ -81,5 +91,13 @@ class SourceDeleteView(generic.DeleteView):
     success_url = reverse_lazy('source_list')
 
 
+# LOG
+class ResponseLogView(generic.ListView):
+    queryset = ResponseLog.objects.all()
+    template_name = 'exchanger/log_list.html'
+
+
+
+# GOOSE
 class GooseView(generic.TemplateView):
     template_name = 'exchanger/goose.html'

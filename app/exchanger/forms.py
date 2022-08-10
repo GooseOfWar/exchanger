@@ -1,3 +1,7 @@
+"""
+Documentation look at: django form initial
+"""
+
 from django import forms
 from exchanger.models import Rate, Source
 

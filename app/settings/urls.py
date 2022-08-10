@@ -11,5 +11,7 @@ urlpatterns = [
 
     path('', views.IndexView.as_view()),
 
-    path('', include('exchanger.urls'))
+    path('', include('exchanger.urls')),
+
+    path('silk/', include('silk.urls', namespace='silk'))
 ]

@@ -1,0 +1,35 @@
+{% extends 'exchanger/base.html' %}
+
+{% block title %}
+    LOG LIST
+{% endblock title %}
+
+{% block main_content %}
+
+    <table class="styled-table">
+        <tr>
+            <th>RESPONSE TIME</th>
+            <th>REQUEST METHOD</th>
+            <th>QUERY PARAMETERS</th>
+            <th>IP</th>
+            <th>PATH</th>
+            <th>CREATED</th>
+        </tr>
+
+
+        {% for log in object_list %}
+
+            <tr>
+                <td> {{ log.response_time }}</td>
+                <td> {{ log.request_method }}</td>
+                <td> {{ log.query_params }}</td>
+                <td> {{ log.ip }}</td>
+                <td> {{ log.path }}</td>
+                <td> {{ log.created }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock main_content %}
+

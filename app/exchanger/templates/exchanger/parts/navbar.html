@@ -5,11 +5,16 @@
             <a href = '/'> HOME</a>
         </li>
         <li>
-            <a href = '/rate/'>VIEW RATE LIST</a>
+            <a href = {% url 'rate_list' %}>VIEW RATE LIST</a>
         </li>
         <li>
-            <a href = '/source/'>VIEW SOURCE LIST</a>
+            <a href = {% url 'source_list' %}>VIEW SOURCE LIST</a>
         </li>
+
+        <li>
+            <a href = {% url 'contact_us' %}>CONTACT US</a>
+        </li>
+
     </ul>
 
 </div>
